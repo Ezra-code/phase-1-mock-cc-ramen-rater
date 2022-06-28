@@ -9,8 +9,20 @@ function fetchMenu(){
     fetch(urlLink)
         .then(res => res.json())
             .then(menu => menu.forEach(item => {
+                displayfirstItem(item)
                 displayMenuItems(item)
+
             }))
+}
+
+function displayfirstItem(item){
+    if(item.id == 1){
+        document.querySelector('.detail-image').src = item.image
+        document.querySelector('.name').innerHTML = item.name
+        document.querySelector('.restaurant').innerHTML = item.restaurant
+        document.querySelector('#rating-display').innerHTML = item.rating
+        document.querySelector('#comment-display').innerHTML = item.comment
+    }
 }
 
 function displayMenuItems(item){
